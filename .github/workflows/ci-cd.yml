@@ -75,7 +75,8 @@ jobs:
         - name: Download CDK artifacts
           uses: actions/download-artifact@v4
           with:
-            path: .
+            name: cdk-dist
+            path: infra/dist
 
         - name: CDK Setup
           working-directory: infra
