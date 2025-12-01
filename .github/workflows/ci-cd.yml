@@ -31,8 +31,7 @@ jobs:
                  
             - name: CDK setup
               run: 
-                cd infra 
-                npm ci --prefer-offline
+                cd infra && npm ci --prefer-offline
 
             - name: CDK synth
               run:
