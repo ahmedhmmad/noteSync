@@ -36,7 +36,7 @@ jobs:
             - name: CDK synth
               run:
                 cd infra 
-                npm run cdk synth -- -o -dist
+                npm run cdk synth -- -o dist
 
             - name: Upload CDK artifacts
               uses: actions/upload-artifact@v4
