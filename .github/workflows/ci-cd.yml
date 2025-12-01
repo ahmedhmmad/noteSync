@@ -11,17 +11,24 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
-            - name: Setup Node.js
+            - name: Setup frontend Node.js
               uses: actions/setup-node@v4
               with:
                 node-version-file: '.nvmrc'
                 cache: 'npm'
-                
+                cache-dependency-path: frontend/package-lock.json
+               
             - name: Build Frontend
               run:
                 cd frontend && npm ci --prefer-offline
                 npm run build
-
+            - name: Setup CDK Node.js 
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'npm'
+                  cache-dependency-path: infra/package-lock.json
+                 
             - name: CDK setup
               run: 
                 cd infra && npm ci --prefer-offline
