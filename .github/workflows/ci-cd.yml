@@ -31,11 +31,13 @@ jobs:
                  
             - name: CDK setup
               run: 
-                cd infra && npm ci --prefer-offline
+                cd infra 
+                npm ci --prefer-offline
 
             - name: CDK synth
               run:
-                cd infra && npm run cdk synth -- -o -dist
+                cd infra 
+                npm run cdk synth -- -o -dist
 
             - name: Upload CDK artifacts
               uses: actions/upload-artifact@v4
